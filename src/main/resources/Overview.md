@@ -1,11 +1,15 @@
 # Overview
 
-##Catalogs and book excerpts
+## Catalogs and book excerpts
 
  * [Clean Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCode.md)
  * [Clean Code Heuristics](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCodeHeuristics.md)
  * [Refactoring](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/Refactoring.md)
  * [Design Patterns](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/DesignPatterns.md)
+ 
+## Current quick notes
+ * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+ * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`
 
 ## Recommended books
  * Clean Code, by Robert C. Martin

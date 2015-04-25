@@ -99,16 +99,16 @@ public class MockitoSamples {
     doAnswer(new Answer<String>() {
       @Override
       public String answer(InvocationOnMock invocation) {
-        return "number " + invocation.getArguments()[0];
+        return "string " + invocation.getArguments()[0];
       }
-    }).when(fooMock).getString(anyInt());
+    }).when(fooMock).getString(anyString());
 
-    assertThat(fooMock.getString(4), is("number 4"));
+    assertThat(fooMock.getString("foo"), is("string foo"));
 
     Foo fooMockWithLambda = Mockito.mock(Foo.class);
-    doAnswer(invocation -> "number " + invocation.getArguments()[0]).when(fooMockWithLambda).getString(anyInt());
+    doAnswer(invocation -> "string " + invocation.getArguments()[0]).when(fooMockWithLambda).getString(anyString());
 
-    assertThat(fooMockWithLambda.getString(4), is("number 4"));
+    assertThat(fooMockWithLambda.getString("foo"), is("string foo"));
 
   }
 
@@ -119,10 +119,6 @@ class Foo {
 
   public String getString(String string) {
     return string;
-  }
-
-  public String getString(int integer) {
-    return Integer.toString(integer);
   }
 
   public void setString(String string) {
