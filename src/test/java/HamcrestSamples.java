@@ -12,7 +12,6 @@ import static org.hamcrest.collection.IsMapContaining.hasKey;
 
 public class HamcrestSamples {
 
-
   @Test
   public void usingHamcrest() {
     // add identifier
@@ -37,6 +36,7 @@ public class HamcrestSamples {
     assertThat("foo", notNullValue());
     assertThat(null, nullValue());
     assertThat("foo", sameInstance("foo"));
+    assertThat("foo", is(any(String.class)));
 
     // beans
     assertThat(new Date(), hasProperty("time"));
@@ -48,7 +48,7 @@ public class HamcrestSamples {
     assertThat(map, hasKey("foo"));
     assertThat(map, hasValue("bar"));
 
-    List<String> list = Arrays.asList(new String[]{"foo", "bar", "bazz"});
+    List<String> list = Arrays.asList("foo", "bar", "bazz");
     assertThat(list, hasItem(is("foo")));
     assertThat(list, hasItems(is("bar"), is("foo")));
     assertThat(list, hasSize(3));
@@ -83,10 +83,12 @@ public class HamcrestSamples {
       public boolean matches(final Object actualValue) {
         return expectedValue.equals(actualValue);
       }
+
       @Override
       public void describeTo(final Description description) {
         description.appendText("was ").appendValue(DATE_FORMAT.format(new Date(expectedValue)));
       }
+
       @Override
       public void describeMismatch(final Object actualValue, final Description description) {
         description.appendText("was ").appendValue(DATE_FORMAT.format(new Date((Long) actualValue)));
