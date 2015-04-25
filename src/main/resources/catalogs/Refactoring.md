@@ -35,70 +35,70 @@ The Refactorings. Credit goes to Martin Fowler and all the people he gives credi
 **Move method**: A method is, or will be, using or used more features of another class than the class on which it is defined.
   Create a new method with a similar body in the class that uses it most. Either turn the old method into a simple delegation, or remove it altogether.
 
-**Move field'': A field is, or will be, used by another class more than the class on which it is defined.
+**Move field**: A field is, or will be, used by another class more than the class on which it is defined.
   Create a new field in the target class, and change all its users.
 
-**Extract Class'': You have one class doing work that should be done by two.
+**Extract Class**: You have one class doing work that should be done by two.
   Create a new class and move the relevant field and methods from the old class into the new class.
 
-**Inline class'': A class isn't doing very much.
+**Inline class**: A class isn't doing very much.
   Move all of its features into another class and delete it.
 
-**Hide Delegate'': A client is calling a delegate class of an object.
+**Hide Delegate**: A client is calling a delegate class of an object.
   Create method on the server to give the delegate.
 
-**Remove Middle Man'': A class is doing too much simple delegation.
+**Remove Middle Man**: A class is doing too much simple delegation.
   Get the client to call the delegate directly.
 
-**Introduce foreign method'': A server class you are using needs an additional method, but you can't modify the class.
+**Introduce foreign method**: A server class you are using needs an additional method, but you can't modify the class.
   Create a method in the client class with an instance of the server class as its first argument.
 
-**Introduce Local Extensions'': A server class you are using need several additional method, buy you can't modify the class.
+**Introduce Local Extensions**: A server class you are using need several additional method, buy you can't modify the class.
   Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original.
 
 
 ## Organizing Data
 
-**Self Encapsulate Fields'': You are accessing a field directly, but the coupling to the field is beginning awkward.
+**Self Encapsulate Fields**: You are accessing a field directly, but the coupling to the field is beginning awkward.
   Create getting and setting methods for the field and user only those to access the field.
 
-**Replace Data Value with Object'': You have a data item that needs additional data or behavior.
+**Replace Data Value with Object**: You have a data item that needs additional data or behavior.
   Turn the data item into an object.
 
-**Change Value to Reference'': You have a class with many equal instances that you want to replace with a single object.
+**Change Value to Reference**: You have a class with many equal instances that you want to replace with a single object.
   Turn the object into a reference object.
 
-**Change Reference to Value'': You have a reference object that is small, immutable, and awkward to manage.
+**Change Reference to Value**: You have a reference object that is small, immutable, and awkward to manage.
   Turn it into a value object.
 
-**Replace Array with Object'': You have an array in which certain elements mean different things.
+**Replace Array with Object**: You have an array in which certain elements mean different things.
   Replace the array with an object that has a field for each element.
 
-**Duplicate Observed Data'': You have domain data available only in a GUI control, and domain methods need access.
+**Duplicate Observed Data**: You have domain data available only in a GUI control, and domain methods need access.
   Copy the date into a domain object. Set up an observer to synchronize the two pieces of data.
 
-**Change Unidirectional Association to Bidirectional'': You have two classes that need each to use reach other's features, but there is only a one-way link.
+**Change Unidirectional Association to Bidirectional**: You have two classes that need each to use reach other's features, but there is only a one-way link.
   Add back pointers, and change modifiers to update both sets.
 
-**Change Bidirectional Association to Unidirectional'': You have a two-way association but one class no longer needs features from the other.
+**Change Bidirectional Association to Unidirectional**: You have a two-way association but one class no longer needs features from the other.
   Drop the unneeded end of the association.
 
-**Replace Magic Number with Symbolic Constant'': You have a literal number with a particular meaning.
+**Replace Magic Number with Symbolic Constant**: You have a literal number with a particular meaning.
   Create a constant, name it after the meaning, and replace the number with it.
 
-**Encapsulate Field'': There is a public field.
+**Encapsulate Field**: There is a public field.
   Make it private and provide accessors.
 
-**Encapsulate Collection'': A method returns a collection.
+**Encapsulate Collection**: A method returns a collection.
   Make it return a read-only view and provide add/remove methods.
 
-**Replace Record with Data Class'': You need to interface with a record structure in a traditional programming environment.
+**Replace Record with Data Class**: You need to interface with a record structure in a traditional programming environment.
   Make a dumb data object for the record.
 
-**Replace Type Code with Class'': A class has a numeric type code that does not affect its behavior.
+**Replace Type Code with Class**: A class has a numeric type code that does not affect its behavior.
   Replace the number with a new class.
 
-**Replace Type Code with Subclasses'': You have an immutable type code that affects the behavior of a class.
+**Replace Type Code with Subclasses**: You have an immutable type code that affects the behavior of a class.
   Replace the type code with subclasses.
 
 **Replace Type Code with State/Strategy**: You have a type code that affects the behavior of a class, but you cannot use subclassing.
