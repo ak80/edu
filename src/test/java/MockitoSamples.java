@@ -9,7 +9,6 @@ import org.mockito.stubbing.Answer;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
-import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -81,7 +80,6 @@ public class MockitoSamples {
 
     // throw exception
     Mockito.when(fooMock.getString(anyString())).thenThrow(IllegalStateException.class);
-
   }
 
   @Test
@@ -109,7 +107,6 @@ public class MockitoSamples {
     doAnswer(invocation -> "string " + invocation.getArguments()[0]).when(fooMockWithLambda).getString(anyString());
 
     assertThat(fooMockWithLambda.getString("foo"), is("string foo"));
-
   }
 
 }

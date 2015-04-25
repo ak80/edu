@@ -13,7 +13,6 @@ import static org.mockito.Matchers.any;
 @PrepareForTest({StaticFoo.class})
 public class PowerMockitoSamples {
 
-
   @Test
   public void mockStaticMethod() {
     PowerMockito.mockStatic(StaticFoo.class);
@@ -63,9 +62,7 @@ class StaticFoo {
   }
 
   public String getString() {
-    return "_string";
+    return _string;
   }
-
-
 
 }
