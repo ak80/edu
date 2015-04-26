@@ -4,6 +4,30 @@ Credit goes to Uncle Bob, Robert C. Martin
  * Always leave the code cleaner than you found it
  * Getting code to work and making it clean are different activities, but are equally important
 
+# Principles
+
+ * KISS: Keep It Simple, Stupid
+ * You Ain't Gonna Need It (YAGNI)
+ * Optimize for readability first, Premature optimization is evil
+
+ * DRY: Don't Repeat Yourself
+ * Single Level of Abstraction (SLA)
+ * Single Responsibility Principle (SRP)
+ * Separation of Concerns (SoC)
+
+ * Interface Segregation Principle (ISP)
+ * Dependency Inversion Principle (DIP)
+ * Information Hiding Principle
+ * Open Closed Principle
+ * Tell, don't ask
+ * Law of Demeter
+ * Design and Implementation do not overlap
+
+ * Favor Composition over Inheritance (FCoI)
+ * Liskov Substitution Principle (LSP)
+ * Principle of Least Astonishment
+ * Implementation mirrors design
+
 # Classes and Modules
 
 ## Principles
@@ -219,3 +243,6 @@ Did you respect the ground rules?
  * Do you run your tests frequently and long with different configurations, on different platforms and with more threads than processors?
  * Do you track down every fluke in testing instead of ignoring it as cosmic rays?
  * Do you have test objects that are slow, medium and fast running or is your code instrumented for yielding / waiting in a random manner?
+
+
+
