@@ -1,16 +1,12 @@
-import org.junit.After;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExternalResource;
-import org.junit.rules.TemporaryFolder;
-import org.junit.rules.TestName;
+package org.ak80.edu.testing;
 
-import java.io.File;
+import org.junit.Rule;
+import org.junit.rules.ExternalResource;
+
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
-public class JUnitRulesSample {
+public class JUnitExternalResourceRuleSample {
   private ServerSocket _socket;
 
   @Rule

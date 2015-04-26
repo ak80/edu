@@ -1,3 +1,5 @@
+package org.ak80.edu.testing;
+
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.junit.rules.TemporaryFolder;
