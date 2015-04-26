@@ -109,21 +109,21 @@ public class MockitoSamples {
     assertThat(fooMockWithLambda.getString("foo"), is("string foo"));
   }
 
+  class Foo {
+    private String _string;
+
+    public String getString(String string) {
+      return string;
+    }
+
+    public void setString(String string) {
+      _string = string;
+    }
+
+    public String getString() {
+      return _string;
+    }
+
+  }
 }
 
-class Foo {
-  private String _string;
-
-  public String getString(String string) {
-    return string;
-  }
-
-  public void setString(String string) {
-    _string = string;
-  }
-
-  public String getString() {
-    return _string;
-  }
-
-}

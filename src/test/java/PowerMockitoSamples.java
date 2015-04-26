@@ -6,6 +6,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
 
@@ -36,16 +37,27 @@ public class PowerMockitoSamples {
     assertThat(StaticFoo.getInstance("foo").getString(), is("bar"));
   }
 
+  @Test
+  public void suppressConstructor() {
+    PowerMockito.suppress(PowerMockito.defaultConstructorIn(StaticFoo.class));
+    StaticFoo fooWithDefault = StaticFoo.getInstance();
+    assertNull(fooWithDefault.getString());
+
+    PowerMockito.suppress(PowerMockito.constructor(StaticFoo.class, String.class));
+    StaticFoo fooWithNonDefault = StaticFoo.getInstance("foo");
+    assertNull(fooWithNonDefault.getString());
+  }
+
 }
 
 class StaticFoo {
   private String _string;
 
-  public StaticFoo() {
-    new StaticFoo("foo");
+  private StaticFoo() {
+    this._string = "foo";
   }
 
-  public StaticFoo(String string) {
+  private StaticFoo(String string) {
     _string = string;
   }
 
@@ -66,3 +78,4 @@ class StaticFoo {
   }
 
 }
+
