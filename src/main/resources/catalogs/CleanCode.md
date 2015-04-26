@@ -9,12 +9,10 @@ Credit goes to Uncle Bob, Robert C. Martin
  * KISS: Keep It Simple, Stupid
  * You Ain't Gonna Need It (YAGNI)
  * Optimize for readability first, Premature optimization is evil
-
  * DRY: Don't Repeat Yourself
  * Single Level of Abstraction (SLA)
  * Single Responsibility Principle (SRP)
  * Separation of Concerns (SoC)
-
  * Interface Segregation Principle (ISP)
  * Dependency Inversion Principle (DIP)
  * Information Hiding Principle
@@ -22,7 +20,6 @@ Credit goes to Uncle Bob, Robert C. Martin
  * Tell, don't ask
  * Law of Demeter
  * Design and Implementation do not overlap
-
  * Favor Composition over Inheritance (FCoI)
  * Liskov Substitution Principle (LSP)
  * Principle of Least Astonishment
@@ -243,6 +240,3 @@ Did you respect the ground rules?
  * Do you run your tests frequently and long with different configurations, on different platforms and with more threads than processors?
  * Do you track down every fluke in testing instead of ignoring it as cosmic rays?
  * Do you have test objects that are slow, medium and fast running or is your code instrumented for yielding / waiting in a random manner?
-
-
-
