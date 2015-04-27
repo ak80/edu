@@ -51,8 +51,8 @@ public class HamcrestSamples {
     assertThat(map, hasValue("bar"));
 
     List<String> list = Arrays.asList("foo", "bar", "baz");
-    assertThat(list, hasItem(is("foo")));
-    assertThat(list, hasItems(is("bar"), is("foo")));
+    assertThat(list, hasItem("foo"));
+    assertThat(list, hasItems("bar", "foo"));
     assertThat(list, hasSize(3));
     assertThat(list.toArray(), hasItemInArray("foo"));
 
