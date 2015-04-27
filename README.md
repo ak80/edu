@@ -8,10 +8,10 @@ educational
 
 ### Streams
 
- * [Lambda](https://github.com/ak80/edu/blob/master/src/testing/java/org/ak80/edu/java8/LambdaSamples.java)
- * [Predicate and UnaryOperator](https://github.com/ak80/edu/blob/master/src/testing/java/org/ak80/edu/java8/PredicateSamples.java)
- * [Bulk Operations](https://github.com/ak80/edu/blob/master/src/testing/java/org/ak80/edu/java8/BulkOperationSamples.java)
- * [Streams](https://github.com/ak80/edu/blob/master/src/testing/java/org/ak80/edu/java8/StreamSamples.java)
+ * [Lambda](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/LambdaSamples.java)
+ * [Predicate and UnaryOperator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/PredicateSamples.java)
+ * [Bulk Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/BulkOperationSamples.java)
+ * [Streams](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/StreamSamples.java)
 
 
 ### Testing
