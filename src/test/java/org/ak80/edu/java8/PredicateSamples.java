@@ -14,8 +14,8 @@ public class PredicateSamples {
 
   @Test
   public void testPredicates() {
-    Predicate<String> isNull =  str -> str == null;
-    Predicate<String> isEmpty =  String::isEmpty;
+    Predicate<String> isNull = str -> str == null;
+    Predicate<String> isEmpty = String::isEmpty;
 
     assertTrue(isNull.test(null));
     assertTrue(isEmpty.test(""));

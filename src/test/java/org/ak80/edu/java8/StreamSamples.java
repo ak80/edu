@@ -14,21 +14,16 @@ public class StreamSamples {
 
   @Test
   public void createStreamAndTerminate() {
-    String [] stringArray = new String[]{"Frodo", "Sam", "Gandalf"};
+    String[] stringArray = new String[]{"Frodo", "Sam", "Gandalf"};
 
     Stream<String> arrayStream = Arrays.stream(stringArray);
-    assertThat(arrayStream.toArray(),is(stringArray));
+    assertThat(arrayStream.toArray(), is(stringArray));
 
     List<String> stringCollection = Arrays.asList(stringArray);
 
     Stream<String> collectionStream = stringCollection.stream();
     assertThat(collectionStream.collect(Collectors.toList()), is(stringCollection));
   }
-
-
-
-
-
 
 
 }

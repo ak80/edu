@@ -19,13 +19,13 @@ public class BulkOperationsSamples {
     final List<String> names = Arrays.asList("Frodo", "Sam", "Gandalf");
 
     StringBuffer joinedExternal = new StringBuffer();
-    for(String name : names) {
-      joinedExternal.append(name+" ");
+    for (String name : names) {
+      joinedExternal.append(name + " ");
     }
     assertThat(joinedExternal.toString().trim(), is("Frodo Sam Gandalf"));
 
     final StringBuffer joinedInternal = new StringBuffer();
-    names.forEach(x -> joinedInternal.append(x+" "));
+    names.forEach(x -> joinedInternal.append(x + " "));
     assertThat(joinedExternal.toString().trim(), is("Frodo Sam Gandalf"));
   }
 
@@ -34,7 +34,7 @@ public class BulkOperationsSamples {
     final List<String> names = new ArrayList<>();
     names.addAll(Arrays.asList("Frodo", "Sam", "Gandalf", ""));
 
-    Predicate<String> isEmpty =  String::isEmpty;
+    Predicate<String> isEmpty = String::isEmpty;
     names.removeIf(isEmpty);
 
     assertThat(names.size(), is(3));
@@ -46,7 +46,7 @@ public class BulkOperationsSamples {
     final List<String> names = new ArrayList<>();
     names.addAll(Arrays.asList("Frodo", "Sam", null, "Gandalf"));
 
-    UnaryOperator<String> defaultSetter =  str -> str == null ? "" : str;
+    UnaryOperator<String> defaultSetter = str -> str == null ? "" : str;
     names.replaceAll(defaultSetter);
 
     assertThat(names, hasItems("Frodo", "Sam", "Gandalf", ""));

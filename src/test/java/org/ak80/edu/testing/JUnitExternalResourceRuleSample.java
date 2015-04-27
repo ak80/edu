@@ -15,7 +15,9 @@ public class JUnitExternalResourceRuleSample {
     @Override
     protected void before() throws Throwable {
       _socket = new ServerSocket(8080);
-    };
+    }
+
+    ;
 
     @Override
     protected void after() {
@@ -24,7 +26,9 @@ public class JUnitExternalResourceRuleSample {
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
-    };
+    }
+
+    ;
 
   };
 

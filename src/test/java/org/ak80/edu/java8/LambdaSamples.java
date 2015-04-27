@@ -12,20 +12,22 @@ public class LambdaSamples {
   @Test
   public void simpleLambda() {
 
-    Function<Integer,Integer> statementLambda = ( (x) -> { return x + 1; } );
-    assertThat(statementLambda.apply(4),is(5));
+    Function<Integer, Integer> statementLambda = ((x) -> {
+      return x + 1;
+    });
+    assertThat(statementLambda.apply(4), is(5));
 
-    Function<Integer,Integer> expressionLambda = (x -> x + 1);
-    assertThat(expressionLambda.apply(4),is(5));
+    Function<Integer, Integer> expressionLambda = (x -> x + 1);
+    assertThat(expressionLambda.apply(4), is(5));
 
-    Function<Integer,Integer> methodReferenceLambda = this::add;
-    assertThat(methodReferenceLambda.apply(4),is(5));
+    Function<Integer, Integer> methodReferenceLambda = this::add;
+    assertThat(methodReferenceLambda.apply(4), is(5));
 
-    Function<Integer,Integer> returnedLambda = getFunction(2);
-    assertThat(returnedLambda.apply(4),is(6));
+    Function<Integer, Integer> returnedLambda = getFunction(2);
+    assertThat(returnedLambda.apply(4), is(6));
 
-    Multiplier passedLambda = ( (x,y) ->  x * y );
-    assertThat(executeMultiplyByTwo(passedLambda,4),is(8));
+    Multiplier passedLambda = ((x, y) -> x * y);
+    assertThat(executeMultiplyByTwo(passedLambda, 4), is(8));
 
   }
 
@@ -33,7 +35,7 @@ public class LambdaSamples {
     return x + 1;
   }
 
-  private Function<Integer,Integer> getFunction(int increment) {
+  private Function<Integer, Integer> getFunction(int increment) {
     return x -> x + increment;
   }
 

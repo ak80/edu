@@ -61,7 +61,7 @@ public class JUnitSamples {
 
   @Test
   public void failedAssumptionAbortsLikeIgnoreButDoesNotFail() {
-    assumeThat("foo",is("bar"));
+    assumeThat("foo", is("bar"));
     fail();
   }
 
@@ -79,7 +79,7 @@ public class JUnitSamples {
 
   @Test
   public void getMethodName() {
-    assertThat(name.getMethodName(),is("getMethodName"));
+    assertThat(name.getMethodName(), is("getMethodName"));
   }
 
 
