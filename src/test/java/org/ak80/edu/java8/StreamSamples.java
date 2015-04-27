@@ -26,6 +26,8 @@ public class StreamSamples {
 
     Stream<String> collectionStream = stringCollection.stream();
     assertThat(collectionStream.collect(Collectors.toList()), is(stringCollection));
+
+assertThat(collectionStream.collect(ArrayList::new),is(stringCollection));
   }
 
   @Test
