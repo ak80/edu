@@ -17,7 +17,7 @@ public class JUnitExternalResourceRuleSample {
       _socket = new ServerSocket(8080);
     }
 
-    ;
+
 
     @Override
     protected void after() {
@@ -27,8 +27,6 @@ public class JUnitExternalResourceRuleSample {
         throw new RuntimeException(e);
       }
     }
-
-    ;
 
   };
 

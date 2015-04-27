@@ -51,7 +51,6 @@ public class LambdaSamples {
     default int getMultiplier() {
       return 2;
     }
-
   }
 
 }
