@@ -2,14 +2,12 @@ package org.ak80.edu.java8;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
+import static java.util.stream.Collectors.*;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -172,6 +170,33 @@ public class StreamSamples {
     assertThat(Stream.of("Frodo", "Sam", "Gandalf").skip(1).collect(Collectors.toList()), hasItems("Sam","Gandalf"));
   }
 
+  @Test
+  public void collect() {
+    Stream<String> names = Stream.of("Frodo", "Sam", "Gandalf");
+    String joined = names.collect(joining());
+    assertThat(joined,is("FrodoSamGandald"));
 
+    names = Stream.of("Frodo", "Sam", "Gandalf");
+    joined = names.collect(joining(","));
+    assertThat(joined, is("Frodo,Sam,Gandald"));
+
+    names = Stream.of("Frodo", "Sam", "Gandalf");
+    joined = names.collect(joining(",", "<", ">"));
+    assertThat(joined, is("<Frodo,Sam,Gandald>"));
+
+    names = Stream.of("Frodo", "Sam", "Gandalf", "Merry");
+    Map<Integer,List<String>> mappedBySize = names.collect(groupingBy(String::length));
+    assertThat(mappedBySize.get(5),hasItems("Frodo","Merry"));
+
+    names = Stream.of("Frodo", "Sam", "Merry", "Pippin");
+    Map<Integer,Long> mappedCount = names.collect(groupingBy(String::length,counting()));
+    assertThat(mappedCount.get(5),is(2L));
+
+    Predicate<String> isWizard = str -> str.equals("Gandalf");
+    names = Stream.of("Frodo", "Sam", "Gandalf");
+    Map<Boolean,List<String>> isWizardOrNot = names.collect(partitioningBy(isWizard));
+    assertThat(isWizardOrNot.get(true),hasItems("Gandalf"));
 
   }
+
+}
