@@ -78,7 +78,9 @@ public class MockitoSamples {
     // reset calls and verify zero interactions
     Mockito.reset(fooSpy);
     Mockito.verifyZeroInteractions(fooSpy);
-    Mockito.verifyNoMoreInteractions(fooSpy);
+   
+    // assert that all interactions that happened have been verified
+     Mockito.verifyNoMoreInteractions(fooSpy);
 
     // throw exception
     Mockito.when(fooMock.getString(anyString())).thenThrow(IllegalStateException.class);
