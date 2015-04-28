@@ -2,6 +2,7 @@ package org.ak80.edu.java8;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
+import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -27,7 +29,8 @@ public class StreamSamples {
     Stream<String> collectionStream = stringCollection.stream();
     assertThat(collectionStream.collect(Collectors.toList()), is(stringCollection));
 
-assertThat(collectionStream.collect(ArrayList::new),is(stringCollection));
+    collectionStream = stringCollection.stream();
+    assertThat(collectionStream.collect(Collectors.toCollection(ArrayList::new)),is(stringCollection));
   }
 
   @Test
@@ -163,4 +166,12 @@ assertThat(collectionStream.collect(ArrayList::new),is(stringCollection));
     assertThat(Stream.of("Frodo", "Frodo", "Sam", "Gandalf", "Sam").distinct().count(), is(3L));
   }
 
-}
+  @Test
+  public void skipAndLimit() {
+    assertThat(Stream.of("Frodo", "Sam", "Gandalf").limit(2).collect(Collectors.toList()), hasItems("Frodo","Sam"));
+    assertThat(Stream.of("Frodo", "Sam", "Gandalf").skip(1).collect(Collectors.toList()), hasItems("Sam","Gandalf"));
+  }
+
+
+
+  }

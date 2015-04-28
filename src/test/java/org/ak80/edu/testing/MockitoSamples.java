@@ -80,7 +80,7 @@ public class MockitoSamples {
     Mockito.verifyZeroInteractions(fooSpy);
    
     // assert that all interactions that happened have been verified
-     Mockito.verifyNoMoreInteractions(fooSpy);
+    Mockito.verifyNoMoreInteractions(fooSpy);
 
     // throw exception
     Mockito.when(fooMock.getString(anyString())).thenThrow(IllegalStateException.class);
