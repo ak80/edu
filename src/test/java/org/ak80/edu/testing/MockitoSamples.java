@@ -68,8 +68,16 @@ public class MockitoSamples {
 
     Mockito.verify(fooSpy).getString("foo");
     Mockito.verify(fooSpy, times(1)).getString("foo");
-    Mockito.verify(fooSpy, atLeastOnce()).getString("foo");
-
+    Mockito.verify(fooSpy,
+atLeast(1)).getString("foo");
+    Mockito.verify(fooSpy,
+atLeastOnce()).getString("foo");
+    Mockito.verify(fooSpy,
+atMost(1)).getString("foo");
+    Mockito.verify(fooSpy,
+times(0)).getString("bar");
+    Mockito.verify(fooSpy,
+never()).getString("bar");
 
     // mock a method from a spy
     Mockito.doReturn("foo").when(fooSpy).getString("foo");
