@@ -15,6 +15,7 @@ educational
  * [Comparator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ComparatorSamples.java)
  * [Optional](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/OptionalSamples.java)
  * [Parallel Array Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ParallelArraySamples.java)
+p142
 
 ### Testing
  * [Junit](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/JUnitSamples.java)

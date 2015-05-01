@@ -2,7 +2,9 @@ package org.ak80.edu.java8;
 
 import org.junit.Test;
 
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -10,7 +12,24 @@ import static org.junit.Assert.assertThat;
 public class LambdaSamples {
 
   @Test
-  public void simpleLambda() {
+  public void differentSyntaxForLambda() {
+    Supplier<Integer> noArguments = () -> 1;
+
+    Function<Integer, Integer> oneArgument = integer -> integer + 1;
+
+    Function<Integer, Integer> multipleStatements = integer -> {
+      integer = integer * 1;
+      return integer + 1;
+    };
+
+    BinaryOperator<Integer> multipleArguments = (int1, int2) -> int1 + int2;
+
+    BinaryOperator<Long> explicitTypes = (Long long1, Long long2) -> long1 + long2;
+  }
+
+
+    @Test
+  public void differentUsesForLambda() {
 
     Function<Integer, Integer> statementLambda = ((x) -> {
       return x + 1;
