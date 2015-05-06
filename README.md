@@ -8,14 +8,22 @@ educational
 
 ### Java 8
 
- * [Lambda](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/LambdaSamples.java)
- * [Predicate and UnaryOperator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/PredicateSamples.java)
- * [Bulk Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/BulkOperationsSamples.java)
- * [Streams](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/StreamSamples.java)
- * [Comparator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ComparatorSamples.java)
- * [Optional](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/OptionalSamples.java)
- * [Parallel Array Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ParallelArraySamples.java)
-p142
+ * Lambda and Functional Interfaces
+  * [Lambda](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/LambdaSamples.java)
+  * [Functional Interfaces](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/FunctionalInterfaces.java)
+  * [Predicate and UnaryOperator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/PredicateSamples.java)
+ 
+ * Bulk operations and Streams
+  * [Bulk Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/BulkOperationsSamples.java)
+  * [Streams](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/StreamSamples.java)
+  * [Comparator](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ComparatorSamples.java)
+  * [Parallel Array Operations](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/ParallelArraySamples.java)
+ 
+ * Other additions:
+  * [Optional](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/OptionalSamples.java)
+  * [Map Additions](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/MapInterfaceAdditions.java)
+
+p146 NIO and Date Functions
 
 ### Testing
  * [Junit](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/JUnitSamples.java)
