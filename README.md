@@ -22,9 +22,12 @@ educational
  * Other additions:
   * [Optional](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/OptionalSamples.java)
   * [Map Additions](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/java8/MapInterfaceAdditions.java)
-
-p146 NIO and Date Functions
-
+  * NIO Additions
+  * Futures
+  * New Date and Time API
+  * JavaScript Integration (Nashorn)
+  * Base64 Encoder / Decoder
+  
 ### Testing
  * [Junit](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/JUnitSamples.java)
  * [Junit Parameterized](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/JUnitParameterizedSample.java)
