@@ -36,3 +36,4 @@
 
 ## Recommended reads
  * [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
+ * [Browser rendering performance](https://developers.google.com/web/fundamentals/performance/rendering/)
