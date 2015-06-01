@@ -174,15 +174,15 @@ public class StreamSamples {
   public void collect() {
     Stream<String> names = Stream.of("Frodo", "Sam", "Gandalf");
     String joined = names.collect(joining());
-    assertThat(joined,is("FrodoSamGandald"));
+    assertThat(joined,is("FrodoSamGandalf"));
 
     names = Stream.of("Frodo", "Sam", "Gandalf");
     joined = names.collect(joining(","));
-    assertThat(joined, is("Frodo,Sam,Gandald"));
+    assertThat(joined, is("Frodo,Sam,Gandalf"));
 
     names = Stream.of("Frodo", "Sam", "Gandalf");
     joined = names.collect(joining(",", "<", ">"));
-    assertThat(joined, is("<Frodo,Sam,Gandald>"));
+    assertThat(joined, is("<Frodo,Sam,Gandalf>"));
 
     names = Stream.of("Frodo", "Sam", "Gandalf", "Merry");
     Map<Integer,List<String>> mappedBySize = names.collect(groupingBy(String::length));
