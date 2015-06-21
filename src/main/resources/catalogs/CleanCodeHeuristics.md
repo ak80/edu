@@ -19,7 +19,7 @@ This list is taken from Robert C. Martin's fantastic book ''Clean Code'', chapte
 **C5 Commented-Out Code**: A piece of code is commented out.
   Delete the commented out code.
 
-## Environment ==
+## Environment
 
 **E1 Build Requires More Than One Step**: More than one step is required to build the system.
   Use a build system or fix the build.
@@ -27,7 +27,7 @@ This list is taken from Robert C. Martin's fantastic book ''Clean Code'', chapte
 **E2 Tests Require More Than One Step**: More than one step is required to run all the unit tests.
   Fix the test setup.
 
-## Functions ==
+## Functions
 
 **F1 Too Many Arguments**: A function has more than three arguments or could have less.
   Reduce the number of parameters: create an instance variable, or parameter object, or for diadic maybe pass an argument in the constructor or use inheritance.
@@ -152,7 +152,7 @@ there.
 **G36 Avoid Transitive Navigation**: Respect the Law Of Demeter.
   Class A uses B, and B uses C. Then A should not know about C and that B uses it. Avoid train.wrecks().
 
-## Java ==
+## Java
 
 **J1 Avoid Long Import Lists by using Wildcards**: "You are using two or more classes from a package.
   Import the whole package with ''import package.***
@@ -163,7 +163,7 @@ there.
 **J3 Constants versus Enums**: You have public static final fields to define Constants
  Use enum instead, and make use of methods ans fields.
 
-## Names ==
+## Names
 **N1 Choose Descriptive Names**: Choose intention revealing names, and regularly review if they still fit.
   A good name says why s.t. exists, what it does and hoe it is used.
 
@@ -181,7 +181,7 @@ there.
 
 **N7 Names Should Describe Side-Effects**: Don't hide side effects with a name. Don't use a simple verb to describe a function that does more than just that simple action.
 
-## Tests ==
+## Tests
 
 **T1 Insufficient Tests**: Tests are insufficient as long as there are conditions that have not been explored or calculations that have not been validated.
 

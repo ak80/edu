@@ -1,6 +1,6 @@
 # Design Patterns
 
-Credit goes to the Gang of Four, Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides.
+Credit goes to the Gang of Four: Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides.
 
 ## Creational Patterns
  * **Abstract Factory**: Provide an interface for creating families of related or dependant objects without specifying their concrete classes.
