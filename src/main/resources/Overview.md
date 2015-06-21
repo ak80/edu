@@ -7,7 +7,8 @@
  * [Refactoring](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/Refactoring.md)
  * [Design Patterns](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/DesignPatterns.md)
  * [Object-Oriente​d Software, Guided by Tests](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/GrowingOO.md)
- * [Workign Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/LegacyCode.md)
+ * [Working Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/LegacyCode.md)
+
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`
