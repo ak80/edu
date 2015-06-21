@@ -7,9 +7,9 @@ Credit goes to Michael Feathers
 There are four reasons to change software:
 
 1. Adding a feature
-1. Fixing a bug
-1. Improving design
-1. Optimizing Resource Usage
+2. Fixing a bug
+3. Improving design
+4. Optimizing Resource Usage
 
 Behaviour is the core aspect of software, and it can be:
 * preserved
@@ -27,14 +27,14 @@ Refactoring is: improving the internal design without changing the external beha
 The three things that can change when working with a (software) system
 
 1. Structure
-1. Functionality
-1. Resource usage
+2. Functionality
+3. Resource usage
 
 In order to mitigate risk when changing software, ask yourself three questions:
 
 1. What changes do we have to make?
-1. How will we know that we've done them correctly?
-1. How will we know that we haven't broken anything?
+2. How will we know that we've done them correctly?
+3. How will we know that we haven't broken anything?
 
 Legacy code, in the context of the book, is:
 * Code without tests
