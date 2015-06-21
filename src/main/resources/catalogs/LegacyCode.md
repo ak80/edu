@@ -5,6 +5,7 @@ Credit goes to Michael Feathers
 ## Changing Software
 
 There are four reasons to change software:
+
 1. Adding a feature
 1. Fixing a bug
 1. Improving design
@@ -24,11 +25,13 @@ area of behaviour has to be preserved.
 Refactoring is: improving the internal design without changing the external behaviour
 
 The three things that can change when working with a (software) system
+
 1. Structure
 1. Functionality
 1. Resource usage
 
 In order to mitigate risk when changing software, ask yourself three questions:
+
 1. What changes do we have to make?
 1. How will we know that we've done them correctly?
 1. How will we know that we haven't broken anything?
