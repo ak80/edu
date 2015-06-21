@@ -25,6 +25,9 @@ regression test suite and an up to date, executable description
 1. While running tests, you detect errors while the context is fresh in you mend. It let's us know when we 
 have done enough of a feature (discourages "gold plating")
 
+Listen to the tests: When you code makes it difficult to write tests, the tests are telling you something about your
+design.
+
 ### Repeated cycles
 
 Work in repeated cycles of activity. Each cycle adds new features and gets feedback about the quantity 
@@ -64,3 +67,23 @@ The TDD cycle is:
 * Refactor the code to be as simple an implementation of the tested feature as possible
 * Repeat
 
+Golden rule: Never write new functionality without a failing test.
+
+### Test levels
+
+* Acceptance tests ask: "Does the whole system work?"
+* Integration tests ask: "Does our code work against code we can't change?"
+* Unit tests ask: "Do our objects do the right thing, are they convenient to work with?"
+
+### Quality
+
+* External quality: how well does the system meet the needs of its customers and users
+* Internal quality: how well does the system meet the needs ot its developers and administrators
+
+### Coupling and Cohesion
+
+* Coupling: If elements are coupled, then a change in one forces the other to change.
+* Cohesion: The cohesion of an element is a measure of whether its responsibilities form a meaningful unit. 
+
+## 02 Test-Driven Development?
+tbd
