@@ -129,7 +129,69 @@ In order to effectively work with legacy code you need:
 * Integration Testing Tool
 
 # Changing Software
-tbd
+ 
+## I don't have much time and I need to change it
+
+### Sprout Method
+A common technique for adding a new feature to a method you can't (yet) bring under test 
+is Sprout Method: You add a new method instead of inlining the feature, in order to bring the
+new method under test. 
+
+If you have trouble instantiating the class that own the method, try passing null for the parameters
+in the constructor or make the sprout method static. Or use Sprout Class.
+
+### Sprout Class
+Use Sprout Class, when you need to add a new feature and you can't bring the class under test or if
+you wan't to add a new responsibility to a class.
+
+
+### Wrap Method
+When you need to add new behaviour, that needs to happen at the same time when an existing method 
+is called, use Wrap Method: Replace the method with a new one, rename it and call it from the new 
+wrapper. Now you can add other calls to the wrapper.
+
+### Wrap Class
+To use wrap class, first extract an interface and implement it. The wrapper gets the original class 
+passed as an argument to the constructor. The wrapper delegates to the original and can add 
+behaviour before or after the call to the original method. Basically this is the decorator pattern.
+
+Prefer Wrap Class to Sprout Class when:
+1. The new behaviour is completely independent and you don't want to pollute the existing class
+2. The class has grown too large and you can't stand to make it worse
+
+### Keep in mind
+The result of a Sprout or Wrap often makes the design worse, when you start out. But this will allow
+you to take code under test. Then you can refactor. They are starting points for improvements.
+
+## It takes forever to make a change
+
+Two factors contribute to long change time:
+1. Understanding
+2. Lag time, the time waiting for (test) feedback, due to long build or test times.
+
+The causes of long lag time are
+* Dependencies that make build time too long
+* Dependencies that make it hard to bring something under test
+
+Reduce build time: bring a class in a test harness; look at its dependencies and extract interfaces from 
+concrete classes and work with them. Put interfaces and classes into different packages to make this distinction
+explicit.
+
+### The Dependency Inversion Principle
+Higher-level modules should depend on abstractions instead of lower-level modules.
+
+Depend on interfaces and abstract classes. Put them in the same package as the client that uses them, or in a
+separate package, but not the same as the implementing class.
+
+Now you can edit classes that implement the interface, add new ones and so on. All without impacting the code
+that uses the interface. This can also reduce build time and allows to create Fakes for testing
+
+## How Do I Add A Feature
+TBD
+
+
+
+
 
 # Dependency Breaking Techniques
 tbd
