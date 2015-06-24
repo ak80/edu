@@ -187,11 +187,38 @@ Now you can edit classes that implement the interface, add new ones and so on. A
 that uses the interface. This can also reduce build time and allows to create Fakes for testing
 
 ## How Do I Add A Feature
-TBD
 
+### TDD Algorithm
 
+The TDD algorithm is:
+1. Write a failing test case
+2. Get it to compile
+3. Make it pass
+4. Remove duplication
+5. Repeat
 
+and for Legacy Code:
+0. Get the class under test
+1. Write a failing test case
+2. Get it to compile
+3. Make it pass (try not to change existing code)
+4. Remove duplication
+5. Repeat
 
+### Liskov substitution principle
+
+Objects of subclasses should be substitutable for objects of their superclasses.
+
+A client should be able to use objects of a subclass without having to know that they are. This is a matter of semantics.
+
+Use these rules of thumb to try to avoid breaking the LSP:
+1. Whenever possible, avoid overriding concrete methods.
+2. If you do, see if you can call the super method from the overriding method.
+
+Prefer normalized hierarchies: No class has more than one implementation of a method. That means no class has a method that overrides a concrete (non+abstract) method inherited from a superclass.
+
+## I can't get this class into a testharness
+tbf
 
 # Dependency Breaking Techniques
 tbd
