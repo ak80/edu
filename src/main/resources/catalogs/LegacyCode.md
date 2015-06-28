@@ -217,8 +217,93 @@ Use these rules of thumb to try to avoid breaking the LSP:
 
 Prefer normalized hierarchies: No class has more than one implementation of a method. That means no class has a method that overrides a concrete (non+abstract) method inherited from a superclass.
 
-## I can't get this class into a testharness
-tbf
+## I can't get this class into a test harness
+
+### Common Problems
+
+Common problems when you want to get a class into a test harness:
+* Objects of the class can't be created easily
+* The test harness won't easily build with the class in it
+* The constructor we need to use has bad side effects
+* Significant work happens in the constructor and we need to sense it
+
+The problem may boil down to these:
+* Irritating Parameter
+* Hidden Dependency in Constructor
+* Irritating Global Dependency
+* Onion Parameter
+* Aliased Parameter
+
+#### Irritating Parameter
+
+An Irritating Parameter is an object that is passed to the constructor or a method of the class
+you want to to bring under test. It is irritating, because you can't (easily) or don't want to 
+create it, for example a database or network connection.
+
+Solutions:
+* Extract Interface and Create Fake
+* Pass Null and Subclass and Override Method
+
+With "Pass Null and Subclass and Override Method" you pass null in the constructor and override the method
+that uses the parameter.
+
+#### Hidden Dependency in Constructor
+
+Solutions:
+* Parametrize Constructor (may be problematic if a lot of objects are created)
+* Extract and Override Getter
+* Extract and Override Factory Method
+* Supersede Instance Variable
+
+#### Irritating Global Dependency
+A dependency on a global variable, e.g. a Singleton or a class with static fields.
+
+Global variables are usually irritating because for tests you need to find out which ones are used
+and then set them up
+
+Solutions, that sometimes are enough:
+* Parametrize Constructor
+* Parametrize Method
+* Extract and Override Call
+
+You can also deal with Singletons in this way:
+* Introduce static setter: Add a new static method to replace the singleton
+* Add a static method to just reset the instance variable to null
+* Don't use Singleton
+
+If you are worried that the Static Setter may be used in Production, include a check in the build
+and allow it only for test code
+
+Singletons are used when:
+1. You model the real world, and there is only one of these things
+2. Having more than one of these things could be a serious problem
+3. Having two of these things would waste resources
+4. The bad reason: you want a global variable
+
+#### Onion Parameter
+
+In order to set up an object, you need to pass another object in the constructor. If that object itself is created
+by passing other objects in, which are created by passing objects in that are created ... and so on ... that is an 
+Onion Parameter
+
+Solutions:
+* Pass Null
+* Extract Interface and Use Fake
+  
+#### Aliased Parameter
+
+Using Extract Interface and Create Fake may not be easy, if a parameter is part of a class hierarchy, because you 
+may need recreate the hierarchy with interfaces.
+
+As an alternative, use Subclass and Override Method
+
+### Construction Test
+
+A construction test is a test case you write with the goal of finding out if you can instantiate the object. 
+Start simple, no assertions and optimistically just try to create all objects needed to be passed to the
+constructor of the class you want to get under test
+
+## I can't run this method in a test harness
 
 # Dependency Breaking Techniques
 tbd
