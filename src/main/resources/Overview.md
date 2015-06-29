@@ -9,6 +9,7 @@
  * [Object-Oriente​d Software, Guided by Tests](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/GrowingOO.md)
  * [Working Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/LegacyCode.md)
  * [The Art of Unit Testing](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/ArtOfUnitTesting.md)
+
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`
