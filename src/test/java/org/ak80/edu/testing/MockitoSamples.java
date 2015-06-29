@@ -116,6 +116,21 @@ public class MockitoSamples {
     assertThat(fooMockWithLambda.getString("foo"), is("string foo"));
   }
 
+  @Test
+  public void testCustomAnswerForAll() {
+
+    Foo fooMock = Mockito.mock(Foo.class,new Answer<String>() {
+      @Override
+      public String answer(InvocationOnMock invocation) {
+        return invocation.getMethod().getName()+"(" + invocation.getArguments()[0]+")";
+      }
+    });
+
+    assertThat(fooMock.getString("foo"), is("getString(foo)"));
+
+  }
+
+
   class Foo {
     private String _string;
 

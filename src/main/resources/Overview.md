@@ -1,6 +1,6 @@
 # Overview
 
-## Catalogs and book excerpts
+## Catalogs and (book) excerpts
 
  * [Clean Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCode.md)
  * [Clean Code Heuristics](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCodeHeuristics.md)
@@ -9,6 +9,7 @@
  * [Object-Oriente​d Software, Guided by Tests](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/GrowingOO.md)
  * [Working Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/LegacyCode.md)
  * [The Art of Unit Testing](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/ArtOfUnitTesting.md)
+ * [TDD, where did it all go wrong](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/TddGoneWrong.md)
 
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -30,7 +31,8 @@
  * [The S.O.L.I.D. Principles of OO and Agile Design, Robert C. Martin](https://www.youtube.com/watch?v=t86v3N4OshQ)
  * [Demanding Professionalism in Software Development, Robert C. Martin](https://www.youtube.com/watch?v=p0O1VVqRSK0)
  * [The Single Responsibility Principle, Robert C. Martin](https://www.youtube.com/watch?v=Gt0M_OHKhQE)
- * [Clean Code Talks, Unit Testing,Misko Hevery](https://www.youtube.com/watch?v=wEhu57pih5w)
+ * [Clean Code Talks, Unit Testing, Misko Hevery](https://www.youtube.com/watch?v=wEhu57pih5w)
+ * [TDD, where did it all go wrong, Ian Cooper](https://vimeo.com/68375232)
  
 ## Recommended podcasts
  * [Software Engineering Radio](http://www.se-radio.net/)
