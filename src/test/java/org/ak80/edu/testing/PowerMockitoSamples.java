@@ -50,6 +50,12 @@ public class PowerMockitoSamples {
     assertNull(fooWithNonDefault.getString());
   }
 
+  @Test
+  public void suppressMethod() {
+    PowerMockito.suppress(PowerMockito.method(StaticFoo.class,"getString",String.class));
+    assertNull(StaticFoo.getString("string"));
+  }
+
 }
 
 class StaticFoo {
