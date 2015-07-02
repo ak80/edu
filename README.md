@@ -2,7 +2,7 @@
 educational
 
 ## Pages 
- * [Overview](https://github.com/ak80/edu/blob/master/src/main/resources/Overview.md)
+ * [Overview](https://github.com/ak80/edu/blob/master/res/Overview.md)
 
 ## Code Samples
 

@@ -2,14 +2,15 @@
 
 ## Catalogs and (book) excerpts
 
- * [Clean Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCode.md)
- * [Clean Code Heuristics](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/CleanCodeHeuristics.md)
- * [Refactoring](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/Refactoring.md)
- * [Design Patterns](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/DesignPatterns.md)
- * [Object-Oriente​d Software, Guided by Tests](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/GrowingOO.md)
- * [Working Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/LegacyCode.md)
- * [The Art of Unit Testing](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/ArtOfUnitTesting.md)
- * [TDD, where did it all go wrong](https://github.com/ak80/edu/blob/master/src/main/resources/catalogs/TddGoneWrong.md)
+ * [Clean Code](https://github.com/ak80/edu/blob/master/res/catalogs/CleanCode.md)
+ * [Clean Code Heuristics](https://github.com/ak80/edu/blob/master/res/catalogs/CleanCodeHeuristics.md)
+ * [Refactoring](https://github.com/ak80/edu/blob/master/res/catalogs/Refactoring.md)
+ * [Design Patterns](https://github.com/ak80/edu/blob/master/res/catalogs/DesignPatterns.md)
+ * [Object-Oriente​d Software, Guided by Tests](https://github.com/ak80/edu/blob/master/res/catalogs/GrowingOO.md)
+ * [Working Effectively With Legacy Code](https://github.com/ak80/edu/blob/master/res/catalogs/LegacyCode.md)
+ * [The Art of Unit Testing](https://github.com/ak80/edu/blob/master/res/catalogs/ArtOfUnitTesting.md)
+ * [xUnit Test Patterns](https://github.com/ak80/edu/blob/master/res/catalogs/xUnitTestPatterns.md)
+ * [TDD, where did it all go wrong](https://github.com/ak80/edu/blob/master/res/catalogs/TddGoneWrong.md)
 
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -24,6 +25,7 @@
  * Patterns of Enterprise Application Architecture, by Martin Fowler
  * Domain-Driven Design, by Eric Evans
  * Growing Object-Oriente​d Software, Guided by Tests, by Steve Freeman, Nat Pryce
+ * xUnit Test Patterns, by Gerard Meszaros
  
 ## Recommended video
  * [Why Software Development is an Engineering Discipline, Glenn Vanderburg](https://www.youtube.com/watch?v=zDEpeWQHtFU)

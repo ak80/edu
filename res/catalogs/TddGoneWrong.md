@@ -2,6 +2,8 @@
 
 Credit goes to Ian Cooper, see https://vimeo.com/68375232
 
+These are some quickly done notes from the video. Many things are left our or shortened, and without the video won't make much sense. Go watch it, and make your own notes.
+
 ## Questions to ask
 
 * Why do many developers don't want to write tests? They can't all be idiots!
@@ -19,6 +21,17 @@ We should all return to his book "Test Driven Development: By Example".
 * Test behavior, not implementation
 * Test the domain model, not the user interface
 
+## Zen Of TTD
+
+Avoid testing implementation details, test behaviors
+
+* A test-case per class approach is not in the spirit of TDD
+* Test outside-in
+* Only write tests to cover implementation details when you need to better understand the refactoring
+
+Kent Beck: "When we write a test, we imagine a perfect interface for our operation. We are telling ourselves 
+a story about how the operation will look from the outside."
+
 ## What isolation means
 
 According to Beck, a unit test is a test in isolation. Actually that just means: no side effect (to other tests). It is not about: tests only one module. Its the test that is
@@ -35,6 +48,14 @@ What do we mock?
 Only mock things that prevent your test from beeing isolated. A bit more on this later
 
 ## Red/Green/Refactor
+
+or 
+
+1. Write a test
+2. Make it compile
+3. Run to see that it fails
+4. Make it run
+5. Remove duplication
 
 ### Sinful green
 
@@ -61,6 +82,8 @@ The bulk of tests should be unit test. Have some integration tests to test e.g. 
 
 Only have few UI tests and tests for external interface tests (eg REST API etc), to see that widgets work and are hooked up correctly.
 
+See also ice-cream cone anti-pattern.
+
 ## Hexagonal Architecture
 
 Use Ports and Adapter, the hexagonal architecture. The ports can be ingoing (explicit contracts) and outgoing (implicit contracts, eg database).
@@ -83,12 +106,11 @@ The argument is either:
 
 Work with customer to define behaviour. Capture with specs like Fitnesse, Cucumber etc
 
-
-Critisism:
+Criticism:
 * Kent Beck: usually customer not available (early on). But with only having unit test there is the danger that they devolve to only developer tests (ie testing API instead of behavior).
 * James Shore: customers never looked at our Fitnesse ATDD tests, they were slow, hard to write, devs hated them!
 
-So, work closeley with customer to get to the level were you could implement them but actually do it with unit tests.
+So, work closely with customer to get to the level were you could implement them but actually do it with unit tests.
 
 ## BDD
 
