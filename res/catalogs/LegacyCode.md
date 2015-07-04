@@ -305,5 +305,88 @@ constructor of the class you want to get under test
 
 ## I can't run this method in a test harness
 
+Problems:
+* Hidden Method, e.g. it's private
+* Parameters are hard to construct
+* Bad Side Effects, e.g. DB Calls
+* We need to sense through
+
+Workarounds for testing a method for a class that is hard to bring into a test harness:
+* Expose Static Method
+* Break Out Method Object
+
+### Testing a private method
+
+You need to test private method:
+* First ask why? Test (indirectly) through a public method, and use the private method as it is used in the code
+* Make it public
+
+Making a private method public for test purposes may bother you, because:
+1. The method is just an utility; it isn't something clients would care about
+2. If clients use the method, they could adversely affect results fom other methods on the class
+
+The solution is: move is to a new class and use this in your original. Now you can test it, but no one can affect
+the instance in production because it is hidden in the original.
+
+Should you subvert access protection through reflection to get access to private methods? This is a sort of a cheat
+and prevents you from noticing just how bad code is.
+
+### Dealing with final / sealed classes
+
+You can't use Extract Interface with final / sealed classes. Try to:
+* use Adapt Parameter
+* Create a new Interface to use in the Method and implement a production version that wraps the original parameter
+
+### Dealing with unpleasant side effects
+
+Use Extract Method, to separate UI handling, DB calls and business logic and apply command/query separation
+
+### Command / Query Separation
+
+Is a design principle: A method should be either:
+* a command - that causes something to happen, that ultimate changes something, or
+* a query - that returns information without changing something. It must be safe too call query multiple times in a row
+
+## I need to make a change, what methods should I test?
+
+### Characterization testing
+
+The simple approach is, to write characterization tests for each method we are going to change
+
+A characterization test: is a test we write around yet untested code, for which we want to preserver behavior
+when we are going to change things.
+
+### Propagation of effects (changed to classes)
+
+Changes to classes that cause effects propagate in three basic ways:
+1. Return values used by the caller
+2. Modifications of objects passed as parameter that are used later
+3. Modification of static or global data that is used later
+
+Use this heuristic to identify effects of change:
+
+1. Look for affected methods, start with the method you want to change
+    * if it returns a value, look at it's callers
+    * if it modifies any values, look at all methods that use these values, and at the methods that use these methods
+    * make sure to check superclass and subclasses
+    
+2. From affected methods, identify changes to variables
+    * check their parameters: see if they or any object that their methods return are used by the code you want to change
+    * check if they modify global variables or static data
+
+Use effect sketches, small hand-drawn sketches that show what variables and method return values can 
+be affected by software changes. Can be useful when you are trying to decide where to write tests.
+
+## I Need to Make Many Changes in One Area
+tbd.
+    
+    
+
+Keep in mind, that when you make changes and look at all clients of a class, that the class might have subclasses or
+a superclass and that these also have clients that might be affected!
+
+
+
+
 # Dependency Breaking Techniques
 tbd
