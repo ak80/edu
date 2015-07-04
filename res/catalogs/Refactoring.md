@@ -1,3 +1,16 @@
+
+- [List of Refactorings](#)
+	- [Composing Methods](#)
+	- [Moving Features Between Objects](#)
+	- [Organizing Data](#)
+	- [Simplifying Conditional Expressions](#)
+	- [Making Method Calls Simpler](#)
+	- [Dealing with Generalization](#)
+	- [Big Refactorings](#)
+- [Code Smells](#)
+	- [List of Smells](#)
+	- [Remedies](#)
+
 # List of Refactorings 
 The Refactorings. Credit goes to Martin Fowler and all the people he gives credit to for this
 

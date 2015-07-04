@@ -15,7 +15,8 @@
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`
-
+ * [Generate TOC for MD](http://doctoc.herokuapp.com/)
+ 
 ## Recommended books
  * Clean Code, by Robert C. Martin
  * Refactoring, by Martin Fowler

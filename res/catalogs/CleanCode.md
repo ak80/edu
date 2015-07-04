@@ -1,5 +1,17 @@
 Credit goes to Uncle Bob, Robert C. Martin
 
+- [Ground Rules](#)
+- [Principles](#)
+- [Classes and Modules](#)
+- [Methods](#)
+- [Variables](#)
+- [Comments](#)
+- [Boundaries](#)
+- [Testing](#)
+- [Systems Startup](#)
+- [Design](#)
+- [Concurrency](#)
+
 # Ground Rules
  * Always leave the code cleaner than you found it
  * Getting code to work and making it clean are different activities, but are equally important

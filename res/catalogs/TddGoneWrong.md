@@ -4,6 +4,21 @@ Credit goes to Ian Cooper, see https://vimeo.com/68375232
 
 These are some quickly done notes from the video. Many things are left our or shortened, and without the video won't make much sense. Go watch it, and make your own notes.
 
+ - [Questions to ask](#)
+ - [Targets of test](#)
+ - [Zen Of TTD](#)
+ - [What isolation means](#)
+ - [Red/Green/Refactor](#)
+ - [Refactor](#)
+ - [Test pyramid](#)
+ - [Hexagonal Architecture](#)
+ - [Gears](#)
+ - [ATDD](#)
+ - [BDD](#)
+ - [Mocks](#)
+ - [Test builder pattern](#)
+
+
 ## Questions to ask
 
 * Why do many developers don't want to write tests? They can't all be idiots!

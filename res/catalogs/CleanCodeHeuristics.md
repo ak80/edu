@@ -1,5 +1,13 @@
 # Clean Code - Smells and Heuristics
 
+ - [Comments](#)
+ - [Environment](#)
+ - [Functions](#)
+ - [General](#)
+ - [Java](#)
+ - [Names](#)
+ - [Tests](#)
+
 This list is taken from Robert C. Martin's fantastic book ''Clean Code'', chapter 17. I have tried to add a description and solution to each smell and heuristic in the style used to describe a Refactoring.
 
 ## Comments
