@@ -1,4 +1,4 @@
-# Working Effectively wiht Legacy Code
+# Working Effectively with Legacy Code
 
 Credit goes to Michael Feathers
 
@@ -365,6 +365,9 @@ Changes to classes that cause effects propagate in three basic ways:
 2. Modifications of objects passed as parameter that are used later
 3. Modification of static or global data that is used later
 
+Keep in mind, that when you make changes and look at all clients of a class, that the class might have subclasses or
+a superclass and that these also have clients that might be affected!
+
 Use this heuristic to identify effects of change:
 
 1. Look for affected methods, start with the method you want to change
@@ -379,13 +382,31 @@ Use this heuristic to identify effects of change:
 Use effect sketches, small hand-drawn sketches that show what variables and method return values can 
 be affected by software changes. Can be useful when you are trying to decide where to write tests.
 
-## I Need to Make Many Changes in One Area
-tbd.
-    
-    
 
-Keep in mind, that when you make changes and look at all clients of a class, that the class might have subclasses or
-a superclass and that these also have clients that might be affected!
+## I Need to Make Many Changes in One Area. Do I Have to Break Dependencies for All Classes Involved?
+
+Guidelines for choosing an Interception Point:
+* It should be close to the change
+* The farther it is away, the higher the risk that your analysis is wrong.
+* You can test if the Interception Point works, by making alterations at the Change Point on purpose
+* The best Interception Point, is the public method you are going to test
+* Higher-level change points are characterizing a bigger area of code, which could mean you have to do
+ less dependency breaking - and cover a bigger for refactoring
+ 
+A pinch point is a special interception point. A narrowing in an effect sketch, a place where tests against
+a couple of methods can detect many changes in methods. A pinch point is a natural encapsulation boundary, a narrow
+funnel for all of the effects for a large piece of code.
+
+If there are too many interception points you need to cover, you are maybe trying to do too much in one change. Or
+you just have to write individual tests for all individual changes as close as you can.
+
+Pinch point traps happen, when you are letting unit tests slowly grow into mini-integration tests. Break down the
+tested classes to allow smaller, independent tests.
+
+## I Need to Make a Change, but I Don't Know What Test to Write
+tbd
+
+ 
 
 
 

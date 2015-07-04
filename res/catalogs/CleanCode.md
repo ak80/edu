@@ -55,6 +55,7 @@ Credit goes to Uncle Bob, Robert C. Martin
  * Liskov Substitution Principle (LSP)
  * Principle of Least Astonishment
  * Implementation mirrors design
+ * Command-Query Separation
 
 # Classes and Modules
 
