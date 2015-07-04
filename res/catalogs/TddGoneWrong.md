@@ -4,19 +4,21 @@ Credit goes to Ian Cooper, see https://vimeo.com/68375232
 
 These are some quickly done notes from the video. Many things are left our or shortened, and without the video won't make much sense. Go watch it, and make your own notes.
 
- - [Questions to ask](#)
- - [Targets of test](#)
- - [Zen Of TTD](#)
- - [What isolation means](#)
- - [Red/Green/Refactor](#)
- - [Refactor](#)
- - [Test pyramid](#)
- - [Hexagonal Architecture](#)
- - [Gears](#)
- - [ATDD](#)
- - [BDD](#)
- - [Mocks](#)
- - [Test builder pattern](#)
+  - [Questions to ask](#questions-to-ask)
+  - [Targets of test](#targets-of-test)
+  - [Zen Of TTD](#zen-of-ttd)
+  - [What isolation means](#what-isolation-means)
+  - [Red/Green/Refactor](#redgreenrefactor)
+    - [Sinful green](#sinful-green)
+    - [Refactor](#refactor)
+  - [Test pyramid](#test-pyramid)
+  - [Hexagonal Architecture](#hexagonal-architecture)
+  - [Gears](#gears)
+  - [ATDD](#atdd)
+  - [BDD](#bdd)
+  - [Mocks](#mocks)
+  - [Test builder pattern](#test-builder-pattern)
+
 
 
 ## Questions to ask
