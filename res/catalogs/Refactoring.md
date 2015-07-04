@@ -1,3 +1,4 @@
+# Refactoring
 
 - [List of Refactorings](#list-of-refactorings)
   - [Composing Methods](#composing-methods)
