@@ -193,6 +193,7 @@ that uses the interface. This can also reduce build time and allows to create Fa
 ### TDD Algorithm
 
 The TDD algorithm is:
+
 1. Write a failing test case
 2. Get it to compile
 3. Make it pass
@@ -200,6 +201,7 @@ The TDD algorithm is:
 5. Repeat
 
 and for Legacy Code:
+
 0. Get the class under test
 1. Write a failing test case
 2. Get it to compile
@@ -404,11 +406,66 @@ Pinch point traps happen, when you are letting unit tests slowly grow into mini-
 tested classes to allow smaller, independent tests.
 
 ## I Need to Make a Change, but I Don't Know What Test to Write
-tbd
 
+A guideline on what to test: Think of a test as a documentation: what would be important for the reader? What would 
+you like to know about the class if you had never seen it? Start with the some easy cases, the basic purposes
+of the class, the most important ones. Then move on to more complex cases and special cases.
+
+Do Targeted Testing: Write tests that cover what you are going to change.
+
+### Characterization tests
+Characterization tests are not focused on finding existing bugs. They are about expected behavior:
+* During development of a new feature, a test specifies behavior 
+* Later the test helps to preserves behavior when other changes are made
+So we are putting in a mechanism to find bugs later, when we change something and they show up
+as differences from the systems current behavior.
  
+A Characterization Test is a test that characterizes actual behavior of a piece of code. It documents
+ what is and not what should be.
 
+How to write a characterization test:
+* Put a piece of code in a test harness
+* Write an assertion, that you know will fail
+* Let the test run and let the failure tell you what the behavior is
+* Change the test (assertion) so that it expects the actual behavior
 
+Some hints:
+* Write the for Tangled pieces of code and hard to get logic
+* Maybe use a sensing variable
+* Make a list of things that could go wrong, try to trigger them from test
+* Use extreme values in input
+* Look for invariants (conditions that are always true during method lifetime), try to write tests for them
+
+If you find a bug during implementation of a characterization test: If the system or feature with the bug in it
+has never been deployed yet, then fix it. Otherwise you must be careful not to break something else, someone might
+already depend on that bug.
+
+### Sensing Variables
+
+A Sensing Variable is a tool during refactoring. It is a variable put in part of production code; the Sensing Variable 
+will hold a value, you want to know about, that is otherwise not accessible because it is buried deep down in the code.
+It could also be a flag value that you set, depending on the code branch that is executed. The sensing variable is 
+removed after refactoring and must not stay in the code!
+
+When want to verify the execution of a branch through a test, make sure there is not another way to make the test pass,
+that you overlooked. Use a sensing variable or check with a debugger to make sure.
+
+### Heuristic for Characterization Tests
+
+The heuristic is:
+
+1. Write tests for the area that will change, as many cases that you need to understand the behavior
+2. Write Targeted Tests for things you are going to change
+3. If you will extract or move, write tests that will verify the existence of thee behavior, and that it is properly
+connected.
+
+## Dependencies on Libraries
+
+Avoid littering your code with direct dependencies on third party libraries, to avoid lock-in.
+
+## My Application is all API Calls
+
+TBD 15
 
 
 # Dependency Breaking Techniques

@@ -16,6 +16,8 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class MockitoSamples {
 
+  // see also https://dzone.com/refcardz/mockito
+
   @Mock
   Foo fooMock;
   Foo fooMockWithoutAnnotation = Mockito.mock(Foo.class);
@@ -34,6 +36,7 @@ public class MockitoSamples {
   @Before
   public void initMocks() {
     MockitoAnnotations.initMocks(this);
+    // not needed if you use MockitoJUnit4Runner
   }
 
   @Test
@@ -73,6 +76,8 @@ public class MockitoSamples {
     Mockito.verify(fooSpy,atMost(1)).getString("foo");
     Mockito.verify(fooSpy,times(0)).getString("bar");
     Mockito.verify(fooSpy,never()).getString("bar");
+    Mockito.verify(fooSpy,only()).getString(anyString()); // no other method called
+    Mockito.verify(fooSpy,timeout(100)).getString(anyString()); // timeout in millis
 
     // mock a method from a spy
     Mockito.doReturn("foo").when(fooSpy).getString("foo");
@@ -128,6 +133,21 @@ public class MockitoSamples {
 
     assertThat(fooMock.getString("foo"), is("getString(foo)"));
 
+  }
+
+  @Test
+  public void testExecutionInOrder() {
+    Foo fooMock1 = Mockito.mock(Foo.class);
+    Foo fooMock2 = Mockito.mock(Foo.class);
+
+    fooMock1.getString();
+    fooMock2.getString();
+    fooMock1.getString("foo");
+
+    InOrder inOrder = inOrder(fooMock1,fooMock2);
+    inOrder.verify(fooMock1).getString();
+    inOrder.verify(fooMock2).getString();
+    inOrder.verify(fooMock1).getString("foo");
   }
 
 
