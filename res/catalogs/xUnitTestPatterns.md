@@ -107,4 +107,61 @@ Classic code smells affect also test code. In addition we find smells like:
 * Test Logic in Production
 
 # Chapter 3. Goals of Test Automation
+
+Testing takes time and effort, and that means it costs money. Writing and maintaining good tests is hard and usually optional, i.e. not what the customer wants.
+
+That means testing must be justified, and the benefits must outweigh the costs.
+
+Costs:
+* Test creation
+* Test maintenance
+
+Benefits:
+* reduced manual testing
+* fewer debugging and troubleshooting in later phases, which is more expensive or very bad if problems are not found and fixed before the customer finds them.
+
+The goals of test automation:
+
+* improve quality:
+  * tests as (executable) specification forces you to think and helps to find misssing / contradictory requirements
+  * provides an understanding of when you are done, thus helps to avoid gold plating
+  * bug repellent to find bugs before they are checked in
+  * defect localization
+* help understand the SUT: black box component tests are effectively describing the requirements
+* reduce risk (and not introduce it): act as a safety net and do no harm
+* easy to run tests: fully automated, self checking, repeatable (independant, without manual intervention, non erratic)
+* easy to write and maintain tests:
+* simple: no conditional logic, verify one condition per test
+* expressive: use test utility methods (creation / assertion) methods and a higher level language (dsl) to communicate intent
+* separation of concerns: e.g. don't test business logic while verifying the user interface
+* tests should require minimal maintenance as the system evolves: avoid test overlap, and make them robust
+
+# Chapter 4. Philosophy of Test Automation
+
+Philosophical differences:
+
+* Test after vs. test first
+* Tests or examples
+* (write) Test-by-test vs. test all-at-once
+* Outside-in vs. inside-out (applies independently to design and coding)
+* behavior verification vs. state verification
+* fixture designed test-by-test vs. big fixture design upfront
+
+# Chapter 5. Principles of Test Automation
+
+* Write the Tests First
+* Design for Testability
+* Use the Front Door First: prefer round-trip tests through public API with state verification. Overuse of behavior verification with Mocks can lead to Overspecified Software and brittle tesrs
+* Communicate Intent: use Test Utility Methods, avoid Conditional Test Logic, think of tests as documentation
+* Don't Modify the SUT
+* Keep Tests Independent
+* Isolate the SUT
+* Minimize Test Overlap
+* Minimize Untestable Code
+* Keep Test Logic Out of Production Code
+* Verify Test One Condition per Test
+* Test Concerns Separately
+* Ensure Commensurate Effort and Responsibility
+
+# Chapter 6. Test Automation Strategy
 tbd
