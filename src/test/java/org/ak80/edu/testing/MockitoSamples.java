@@ -9,6 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Answers.RETURNS_DEEP_STUBS;
 import static org.mockito.Mockito.*;
@@ -92,6 +93,10 @@ public class MockitoSamples {
 
     // throw exception
     Mockito.when(fooMock.getString(anyString())).thenThrow(IllegalStateException.class);
+
+    // mock with more interfaces to support instance of
+    Foo isFooAndBar = mock(Foo.class, withSettings().extraInterfaces(Bar.class));
+    assertThat(isFooAndBar, instanceOf(Bar.class));
   }
 
   @Test
@@ -167,5 +172,10 @@ public class MockitoSamples {
     }
 
   }
+
+  interface Bar {
+
+  }
+
 }
 

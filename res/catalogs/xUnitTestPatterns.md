@@ -164,4 +164,90 @@ Philosophical differences:
 * Ensure Commensurate Effort and Responsibility
 
 # Chapter 6. Test Automation Strategy
-tbd
+
+A decision is strategic if it is "hard to change", i.e. changing it costs a large amount of effort.
+ 
+Common strategic decisions:
+* What kinds of tests to automate?
+* Which tools to use to automate then?
+* How to manage test fixtures?
+* How to ensure the system is easily tested and how the tests interact with the SUT?
+
+## Test Categories
+There are, roughly spoken, two categories:
+* Per-functionality tests (functional tests) to verify the SUTs behavior in response to a certain stimulus
+* Cross-functional tests for various aspects that cut across specific functionality
+
+### Per-Functionality Tests
+Verify directly observable behavior; either business related or related to operational requirements. Most of these requirements can also be expressed as use cases, features, user stories or test scenarios.
+
+They all can - and should -be automated.
+
+They are further characterized on two dimensions:
+* business / user facing or technology facing
+* the size of SUT on which they operate
+
+* Customer Tests: business intent (executable specification)
+* Component Tests: architect intent (design of the system)
+* Unit Tests: developer intent (design of code)
+
+For customer tests there are various automation technologies, the other two are usually automated with a xUnit style test framework.
+
+### Customer Tests
+
+Verify behavior of entire system or application, often correspond to use cases, features or user-stories.
+
+A.k.a. end-user tests, functional tests, acceptance tests.
+
+Although they may be automated by a developer, an end user should be able to recognize the behavior specified. At least hypotherically if he could read the test specification. In other words, customer tests work on the customers level of abstraction.
+
+### Unit Tests
+
+Verify the behavior of a single class or method that is a consequence of a design decision.
+
+They are typically not directly related to a requirement, but support the developer with a design guidance, definition of done and a safety net of regression tests.
+
+### Component Tests
+
+Verify components, groups of classes that collectively provide some service. Although often called "integration tests" this term can also mean s.t. else.
+
+### Fault Insertion Test
+
+Show up at all levels, with different kinda of faults inserted at each level - usually hard to do for customer tests.
+
+## Cross-functional
+
+* Usability Testing: is it pleasurable?
+* Exploratory Testing: is it self-consistent?
+* Property Testing: is it responsive, secure, scalable?
+
+Property testing is based on special tools, the other two are done manually.
+
+### Property Testing
+They test non functional requirements, e.g.:
+* Response time tests
+* Capacity tests
+* Stress tests
+
+Most of them must be automated, for example because a human tester would not be able to create enough load.
+
+### Usability Tests
+
+Verify fitness for purpose and are not automatable
+
+### Exploratory Testing
+
+Determine whether the product is self-consistent and can't be automated
+
+## Tools to Automate
+
+Use either a tool to monitor an interaction and create a Recorded Test from it, or program / define the test to be a Hand-Scripted Test.
+
+## Test Fixture Strategy
+
+The first phase in the four phase test is to create the SUT and everything it depends on and put them into the state required to exercise the SUT. This is the Fixture Setup
+
+We have three options:
+1. Transient Fresh Fixture
+2. Persistent Fresh Fixture
+3. Shared Fixture
