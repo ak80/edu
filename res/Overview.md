@@ -12,6 +12,7 @@
  * [xUnit Test Patterns](https://github.com/ak80/edu/blob/master/res/catalogs/xUnitTestPatterns.md)
  * [TDD, where did it all go wrong](https://github.com/ak80/edu/blob/master/res/catalogs/TddGoneWrong.md)
  * [Java Concurrency in Practive](https://github.com/ak80/edu/blob/master/res/catalogs/JavaConcurrency.md)
+
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`

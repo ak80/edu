@@ -1,4 +1,4 @@
-# Java Concurrency
+# Java Concurrency in Practice
 Credit goes to Brian Goetz
 
 # Chapter 1. A Introduction
