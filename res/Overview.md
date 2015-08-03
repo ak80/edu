@@ -11,7 +11,7 @@
  * [The Art of Unit Testing](https://github.com/ak80/edu/blob/master/res/catalogs/ArtOfUnitTesting.md)
  * [xUnit Test Patterns](https://github.com/ak80/edu/blob/master/res/catalogs/xUnitTestPatterns.md)
  * [TDD, where did it all go wrong](https://github.com/ak80/edu/blob/master/res/catalogs/TddGoneWrong.md)
-
+ * [Java Concurrency in Practive](https://github.com/ak80/edu/blob/master/res/catalogs/JavaConcurrency.md)
 ## Current quick notes
  * [MD syntax cheatsheet by adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
  * Chrome Browser fix mouse in VirtualBox: `Exec=chromium-browser --touch-devices=123 %U`
@@ -27,8 +27,10 @@
  * Domain-Driven Design, by Eric Evans
  * Growing Object-Oriente​d Software, Guided by Tests, by Steve Freeman, Nat Pryce
  * xUnit Test Patterns, by Gerard Meszaros
+ * Effective Java, by Joshua Bloch
+ * Java Concurrency in Practice, by Brian Goetz
  
-## Recommended video
+## Recommended videos
  * [Why Software Development is an Engineering Discipline, Glenn Vanderburg](https://www.youtube.com/watch?v=zDEpeWQHtFU)
  * [Clean Architecture and Design, Robert C. Martin](https://www.youtube.com/watch?v=Nsjsiz2A9mg)
  * [The S.O.L.I.D. Principles of OO and Agile Design, Robert C. Martin](https://www.youtube.com/watch?v=t86v3N4OshQ)
