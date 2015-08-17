@@ -34,15 +34,15 @@ public class Wrapper {
   @Test
   public void demonstrateWrapper() {
     // Given
-    Holder<String> wrapper = new Holder<>("");
+    Holder<String> holder = new Holder<>("");
     Service service = new ServiceImpl("test");
-    Service serviceWithCallback = new CallbackWrapper<Service,String>(service, (s) -> wrapper.set(s)).wrap();
+    Service serviceWithCallback = new CallbackWrapper<Service,String>(service, (s) -> holder.set(s)).wrap();
 
     // When
     serviceWithCallback.getData();
 
     // Then
-    assertThat(wrapper.get(), is("test"));
+    assertThat(holder.get(), is("test"));
   }
 
 }
