@@ -303,4 +303,291 @@ This is an immutable class that holds your data items.
 
 ## Safe Publication
 
-Tbd
+Partially constructed object: 
+If during construction a reference to the new object escapes, it may appear to be in an inconsistent state to another thread. 
+
+A not so obvious example is to assign a new object to a public variable: 
+public myPublic = new SomeClass();
+
+This is an example of an object that is not properly published.
+
+When constructing an object first all default values are written by the constructor of Object, before any subclass constructors run.
+
+### Immutable Objects and Initalization Safety
+
+The Java Memory Model offers a special guarantee: immutaable objects can safely be used by any other thread, even when synchronization was not used to publish them!
+
+### Safe Publishing Idioms
+
+Mutable objects need to be safely published, which usually means to use synchronization in the publishing and consuming thread.
+
+Safe publishing means: both the reference to the object as well as the state of it must be made visible at the same time.
+
+A properly constructed object can be safely published by:
+* Initializing an object reference from a static initializer
+* storing a reference to it into a volatile field or AtomicReference
+* storing a reference to it into a final field of a properly constructed object
+* storing a reference to it into a field that is properly guarded by a lock
+
+### Thread-safe Collections
+
+The thread-safe collections guarantee safe publishing, for:
+* a key or value in a HashTable, SynchronizedMap, ConcurrentMap
+* an element in a Vector, CopyOnWriteArrayList, CopyOnWriteArraySet, SynchronizedList, SynchronizedSet
+* an element in a BlockingQueue or ConcurrentLinkedQueue
+
+Future and Exchanger also provide safe publication.
+
+### Effectively Immutable Objects
+
+Objects that are not technically immutable, but whose state will not be modified after publication are called effectively immutable.
+
+After construction they are treated, by convention, as if they were immutable.
+
+Safely published effectively immutable objects can be used safely by any thread without additional synchronization.
+
+### Mutable Objects
+
+Synchronization must be used to publish a mutable object, as well as every time the object is accessed.
+
+### Publication Requirements
+
+They depend on the mutability:
+* Immutable objects: can be published through any mechanism
+* Effectively immutable objects: must be safely published
+* Mutable objects: must be safely published and must either be thread-safe or guarded by a lock.
+
+### Sharing Objects Safely
+
+In order to safely use a shared an object, the developer must understand how to use it: do you need to acquire a lock? Are you allowed to modify state?
+
+The most useful policies for sharing are:
+* Thread-confined: the object is exclusively owned by and confined to one thread; the thread can modify it
+* Shared read-only: immutable and effectively immutable objects can be freely shared between and used by multiple threads without additional synchronization. They must not be modified!
+* Shared thread-safe: the object performs synchronization internally, so it can be shared and used by multiple threads without additional synchronization.
+* Guarded: a guarded object must only be accessed with a specific lock held
+
+# Chapter 4. Composing Objects
+
+## Designing a Thread-safe Class
+
+Encapsulation makes it possible to determine that a class is thread-safe without having to examine the entire program.
+
+The design process includes:
+* Identify the variables that form the object's state
+* Identify the invariants that constrain the state variables
+* Establish a policy for managing concurrent access to the object's state
+
+The synchronization policy defines how an object coordinates access to its state without violating its invariants out postconditions. It specifies how it uses things like immutability, thread confinement and locking. It must be documented!
+
+### Gathering Synchronization Requirements
+
+The state space of a variable is the range of possible states it can take on.
+
+Constrains need to be properly protected. For example:
+* state constrains define certain states as invalid (invalid values). This creates a encapsulation requirement
+* state transition constrains define states that are not valid as a next state, based on the current state. This always implies a compound action
+* there may be constrains, where state of two or more variables depend on each other, which again implies a compound action
+
+These constraints are derived from invariants and post-conditions
+
+### State-dependent Operations
+
+Derived from state-based preconditions,e.g. for executing a remove operation on a queue, the queue must be non-empty.
+
+In a single-threaded program, an operation has no choice but to fail if the precondition is not true. In a multi-threaded it could wait until the precondition becomes true.
+
+The low level operations for this are wait() and notify(). It is often easier to use synchronizers like BlockingQueue or Semaphore.
+
+### State Ownership
+
+Ownership is not expressed in a programming language. Often it is simple: an object encapsulates the state it owns, and owns the state it encapsulates. But once you publish a reference to a mutable object, you no longer have exclusive control; at best its now shares ownership.
+
+## Instance Confinement
+
+If an object is completely encapsulated in another, and does not escape, it is "instance confined". It's easy to manage and reason about.
+
+## Java Monitor Pattern
+
+An object encapsulates all is mutable state and guards it with the objects own intrinsic lock.
+
+If the intrinsic lock is used, another client could acquire it, which could lead to deadlocks. A private lock prevents this, but then a client could not participate in locking.
+
+A common idiom to publish state is to copy mutable data and publishing the copy.
+
+## Delegating Thread Safety
+
+A composite made entirely of thread safe classes may be thread safe itself. But that is not guaranteed.
+
+If all state variables are thread safe or immutable and independent, and if there are no invalid state transitions, then the thread safety can be delegated.
+
+But if invariants relate between state variables or if there are constrains on the state transitions then compound actions are involved, and the class must use its own locking to make them atomic.
+
+### Publishing underlying state variables
+
+If a state variables is thread safe or immutable and independent of other state variables, and if there are no invalid state transitions, then it can be safely published.
+
+## Adding Functionality to Existing Thread-safe Classes
+
+The safest way to add a new atomic operation to a thread safe class is to modify the original class.
+
+Alternatives are, to extend the class if it was designed for extensions. But then the synchronisation policy is distributed over multiple files, which is more fragile.
+
+The third alternative, is to place the extension code in a helper class. Then use the same lock as the original class! This is called external locking out client side locking. This is likewise fragile.
+
+A better alternative is composition
+
+### Composition
+
+Create a wrapper that implements the interface of the class you want to extend and holds an instance, to which it delegates all operations. Then add you own operation. Use the monitor pattern to synchronize all access.
+
+## Documenting synchronization policies
+
+Document a classes:
+* thread safety guarantees for its clients
+* synchronization policy for its maintainers
+
+# Chapter 5. Building blocks
+
+## Synchronized Collections
+
+Vector, Hashtable (both considered depracated) and synchronized wrapper classes created by Collections.synchronizedXxx.
+
+They are thread safe but sonetimes compound actions may need additional client-side locking. Common compound actions are e.g. iteration, navigation, put-if-absent. While they are technically thread-safe without client-side locking, they mat not behave as expected, when concurrently accessed.
+
+The synchronized collections use a lock on the object itself; this can be used for client-side locking.
+
+Iterators of synchronized collections are "fail-fast iterators", they maintain a collection count and if it changes throw a ConcurrentModificationException. This is not fool proof, but often good enough. You can prevent this with locking, but that usually is not performant and may even lead to deadlocks. The alternative would be to clone the collection, and iterate over the clone.
+
+### Hidden Iteration
+
+Under the good iteration of used on Collections by toString(), equals(), hashCode()
+
+## Concurrent Collections
+
+Introduced with Java 5.
+
+A new ConcurrentMap interface with compound actions for replace and conditional put or remove and ConcurrentHashMap. 
+
+Also CopyOnWriteArrayList.
+
+Further there are two new types, Queue and BlockingQueue.
+
+Implementations are e.g. ConcurrentLinkedQueue (traditional FIFO) or the non-concurrent PriorityQueue.
+
+Added with Java 6 are ConcurrentSkipListMap and ConcurrentSkipListSet, the concurrent replacements for synchronized SortedMap and SortedSet
+
+### ConcurrentHashMap
+
+Uses a fine grained locking mechanism called " lock striping". This provides much better performance than with SynchronizedMap. But client-side locking is not supported.
+
+Like the other concurrent collections, there is no need to lock during iteration, and iterators won't throw ConcurrentModificationException. They are weakly consistent: tolerates concurrent modification, traverses elements as they existed when the iterator was constructex and may reflect modifications to the collection.
+
+Some operations have been weakened: size() or isEmpty() may not always be up to date, due to the nature of concurrent access this is usually not a problem.
+
+### CopyOnWriteArrayList
+
+A concurrent replacement for a synchronized List. Offers better concurrency for common situations, eliminates need to lock during iteration .
+
+Every time the collection is modified, a new copy is published.
+
+A good use case is for registering listeners or event handlers. We expect small numbers, rare modification but manu iterations.
+
+## Blocking Queues and the Producer-Consumer Pattern
+
+They offer put() and take(), which may block, or offer() and pull() with timeout.
+
+LinkedBlockingQueue and ArrayBlockingQueue are FIFO queues,similar to LinkedList and ArrayList but with better concurrent performance than a synchronized List.
+
+PriorityBlockingQueue is priority order (uses a Comparator or natural ordering if elements implement comparable).
+
+SynchronousQueue not a queue, because it has no storage space but hands off elements directly.
+
+### Serial Thread Confinement
+
+The blocking queues in java.util.concurrent implement safe publishing from producer thread to a consumer thread. This can be seen as handing off ownership, allowing serial thread confinement.
+
+### Deques and Work Stealing
+
+Since Java 6: Deque and BlockingDeque, intended for "work stealing": if a consumer exhausts its queue it can steal work from the tail of a queue of  another consumer.
+
+A deque is a double ended queue with efficient insertion and removal at both ends.
+
+This works well when consumers are also producers.
+
+## Blocking and Interruptable Methods
+
+Threads may block for multiple reasons, e.g. waiting for I/O, waiting for a lock or to wake up from sleep()
+
+The states are BLOCKED, WAITING, TIMED_ WAITING.
+
+When a method can throe InterruptedException it means that the method is blocking and that it can be interrupted. For example put() and take() of BlockingQueue, or Thread.sleep().
+
+Each Thread had a boolean property that represents its interrupted status; the interrupt() method sets it and the status can be queried. 
+
+Use Thread.currentThread() for getting the current thread.
+
+Interruption is a cooperative, and not a forced, mechanism.
+
+When you write library code and call a blocking method that can throw InterruptedException, you must decide how to handle:
+* propagate either by not catching or by rethrowing
+* call interrupt() again to restore the status
+
+Don't just swallow the interrupt! 
+
+## Synchronizers
+
+A synchronizer is any object that coordinates the control flow of threads based on its state. BlockingQueues can be synchronizers; others are semaphores, barriers and latches.
+
+They decide based on their own internal state, whether a thread arriving at the synchronizer should wait or be allowed to pass.
+
+### Latches
+
+Delays the progress of threads until it reaches a terminal state. Until that state is reached, all threada have to wait, once that state is reached, the gate states open.
+
+### FutureTask
+
+Implements a Future, a computation with a result and implements a Callable (a Runnable with a result).
+
+It is in one of three states:
+1. waiting
+2. running
+3. completed
+
+Completed is normal completion, failurea or cancellation.
+
+When get() is called and the FutureTask is not conpleted, the get() blocks. Otherwise it returns the result or throws an exception.
+
+The Throwable thrown by get() can be:
+* a checked exception from Callable
+* a RuntimeException
+* anm8mim
+It is advisable to check which it is with instance of and cast it for rethrow.
+
+Be careful when caching a Future: if it is canceled or throws an error, your cache gets polluted.
+
+### Semaphores
+
+Are used to limit access, by dispensing a preconfigured number of permits. If no permit is left, the operation for acquring a permit, acquire() blocks until a permit has been returned with release(). It is possible to use a timeout with acquire().
+
+A semaphore with an initial count of one can be used as a mutex.
+
+Note that:
+* release() "creates" a permit and so it is possible to increase the initial count.
+* there is no association to threads and the one that acquires a permit doesn't have to be the same that returns it.
+
+### Barriers
+
+Barriers block a group of thread until they are all at the barrier. Latches are waiting for events, bartiers are waiting for other threads.
+
+CyclicBarrier is used to rendevouz a fixed number of threads repeatedly at a barrier point. Threads call await() at the barrier point and block until all threads arrived. When a call to await() times out or the blocked Thread is interrupted, then the barrier is broken and outstanding calls to await() will terminate with BrokenBarrierException.
+
+Exchanger is a two-party barrier, where two threads exchange data at the barrier point.
+
+# Summary Part I
+
+* Reduce mutables: all concurrency issues boil down to coordinating access to mutable state. Use final and immutable objects
+* Use encapsulation, to manage complexity
+* Guard each mutable with a lock, guard all variables in an invariant with the same lock.
+* Hold locks during compound actions
+* Include thread-safety in the design process and document your synchronization policy.

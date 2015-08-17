@@ -35,3 +35,7 @@ educational
  * [Hamcrest](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/HamcrestSamples.java)
  * [Mockito](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/MockitoSamples.java)
  * [PowerMockito](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/testing/PowerMockitoSamples.java)
+
+### Misc
+
+ * [Dynamic Proxy](https://github.com/ak80/edu/blob/master/src/test/java/org/ak80/edu/misc/Wrapper.java)
