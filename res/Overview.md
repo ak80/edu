@@ -30,6 +30,9 @@
  * xUnit Test Patterns, by Gerard Meszaros
  * Effective Java, by Joshua Bloch
  * Java Concurrency in Practice, by Brian Goetz
+ * Agile Principles Patterns and Practices, by Robert C. Martin
+ * Head First Design Patterns, by Elisabeth Freeman and Eric Freeman
+
  
 ## Recommended videos
  * [Why Software Development is an Engineering Discipline, Glenn Vanderburg](https://www.youtube.com/watch?v=zDEpeWQHtFU)
@@ -46,3 +49,5 @@
 ## Recommended reads
  * [How Browsers Work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
  * [Browser rendering performance](https://developers.google.com/web/fundamentals/performance/rendering/)
+ * [Articles from Uncle Bob, and other folks from Object Mentor](http://www.objectmentor.com/resources/publishedArticles.html)
+   * especially [SOLID principles](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
