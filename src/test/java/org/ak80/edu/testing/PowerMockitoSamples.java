@@ -11,6 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({StaticFoo.class})
@@ -39,7 +40,18 @@ public class PowerMockitoSamples {
     assertThat(StaticFoo.getInstance("foo").getString(), is("bar"));
   }
 
+
   @Test
+  public void verify() throws Exception {
+    PowerMockito.mockStatic(StaticFoo.class);
+
+    StaticFoo.getString("test");
+
+    PowerMockito.verifyStatic(times(1));
+    StaticFoo.getString("test");
+  }
+
+    @Test
   public void suppressConstructor() {
     PowerMockito.suppress(PowerMockito.defaultConstructorIn(StaticFoo.class));
     StaticFoo fooWithDefault = StaticFoo.getInstance();
