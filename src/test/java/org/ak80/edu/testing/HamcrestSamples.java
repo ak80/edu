@@ -43,18 +43,26 @@ public class HamcrestSamples {
     // beans
     assertThat(new Date(), hasProperty("time"));
 
-    //collection
+    // collection
+    List<String> list = Arrays.asList("foo", "bar", "baz");
+    assertThat(list, hasItem("foo"));
+    assertThat(list, not(hasItem("quzz")));
+    assertThat(list, hasItems("bar", "foo"));
+    assertThat(list, hasSize(3));
+    assertThat(list.toArray(), hasItemInArray("foo"));
+
+    assertThat(list, contains("foo", "bar", "baz"));
+    assertThat(list, containsInAnyOrder("foo", "baz", "bar"));
+
+    assertThat(Arrays.asList(), empty());
+    assertThat(new Object[0], emptyArray());
+
+    // collection map
     Map<String, String> map = new HashMap<>();
     map.put("foo", "bar");
     assertThat(map, hasEntry("foo", "bar"));
     assertThat(map, hasKey("foo"));
     assertThat(map, hasValue("bar"));
-
-    List<String> list = Arrays.asList("foo", "bar", "baz");
-    assertThat(list, hasItem("foo"));
-    assertThat(list, hasItems("bar", "foo"));
-    assertThat(list, hasSize(3));
-    assertThat(list.toArray(), hasItemInArray("foo"));
 
     // number
     assertThat(5.501, closeTo(5.502, 0.01));
