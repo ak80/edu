@@ -36,8 +36,8 @@ public class MockitoSamples {
 
   @Before
   public void initMocks() {
-    MockitoAnnotations.initMocks(this);
     // not needed if you use MockitoJUnit4Runner
+    MockitoAnnotations.initMocks(this);
   }
 
   @Test

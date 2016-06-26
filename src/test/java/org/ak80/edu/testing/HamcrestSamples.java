@@ -19,8 +19,8 @@ public class HamcrestSamples {
     // add identifier
     assertThat("identifier", "foo", equalTo("foo"));
 
-    // core
-    assertThat("foo", is(anything("bar")));
+    // basics
+    assertThat("foo", is(anything("description")));
     assertThat("foo", is("foo"));
     assertThat("foo", is(equalTo("foo")));
 
@@ -38,6 +38,7 @@ public class HamcrestSamples {
     assertThat("foo", notNullValue());
     assertThat(null, nullValue());
     assertThat("foo", sameInstance("foo"));
+    assertThat("foo", isA(String.class));
     assertThat("foo", is(any(String.class)));
 
     // beans
@@ -47,11 +48,11 @@ public class HamcrestSamples {
     List<String> list = Arrays.asList("foo", "bar", "baz");
     assertThat(list, hasItem("foo"));
     assertThat(list, not(hasItem("quzz")));
-    assertThat(list, hasItems("bar", "foo"));
+    assertThat("some", list, hasItems("bar", "foo"));
     assertThat(list, hasSize(3));
     assertThat(list.toArray(), hasItemInArray("foo"));
 
-    assertThat(list, contains("foo", "bar", "baz"));
+    assertThat("all", list, contains("foo", "bar", "baz"));
     assertThat(list, containsInAnyOrder("foo", "baz", "bar"));
 
     assertThat(Arrays.asList(), empty());

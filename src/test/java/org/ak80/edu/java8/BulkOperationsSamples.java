@@ -48,7 +48,6 @@ public class BulkOperationsSamples {
 
     UnaryOperator<String> defaultSetter = str -> str == null ? "" : str;
     names.replaceAll(defaultSetter);
-
     assertThat(names, hasItems("Frodo", "Sam", "Gandalf", ""));
   }
 

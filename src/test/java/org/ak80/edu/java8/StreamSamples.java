@@ -11,6 +11,7 @@ import static java.util.stream.Collectors.*;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertThat;
 
 public class StreamSamples {
@@ -167,7 +168,7 @@ public class StreamSamples {
   @Test
   public void skipAndLimit() {
     assertThat(Stream.of("Frodo", "Sam", "Gandalf").limit(2).collect(Collectors.toList()), hasItems("Frodo","Sam"));
-    assertThat(Stream.of("Frodo", "Sam", "Gandalf").skip(1).collect(Collectors.toList()), hasItems("Sam","Gandalf"));
+    assertThat(Stream.of("Frodo", "Sam", "Gandalf").skip(1).collect(Collectors.toList()), hasItems("Sam", "Gandalf"));
   }
 
   @Test
@@ -196,7 +197,16 @@ public class StreamSamples {
     names = Stream.of("Frodo", "Sam", "Gandalf");
     Map<Boolean,List<String>> isWizardOrNot = names.collect(partitioningBy(isWizard));
     assertThat(isWizardOrNot.get(true),hasItems("Gandalf"));
+  }
 
+  @Test
+  public void sample() {
+    Predicate<String> isHobbit = x -> Arrays.asList("Frodo", "Sam").contains(x);
+    Stream<String> s = Stream.of("Sam", "Frodo", "Gandalf", "Frodo", "Sam");
+
+    List<String> list =  s.distinct().filter(isHobbit).map(String::toUpperCase).sorted().collect(Collectors.toList());
+
+    assertThat(list,contains("FRODO","SAM"));
   }
 
 }
